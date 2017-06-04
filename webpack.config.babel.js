@@ -20,6 +20,19 @@ module.exports = {
                 test : /\.js?/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
+            }, {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            }, {
+                test: /\.woff(2)?(\?v=[0-9]+\.[0-9]+\.[0-9]+)?$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {limit: 10000}
+                }]
+            },
+            {
+                test: /\.(ttf|eot|svg)(\?v=[0-9]+\.[0-9]+\.[0-9]+)?$/,
+                use: 'file-loader'
             }
         ]
     },
@@ -40,6 +53,7 @@ module.exports = {
         hot: true,
         port: 8080,
         contentBase: resolve(__dirname, 'client'),
-        publicPath: '/'
+        publicPath: '/',
+        historyApiFallback: true
     },
 };

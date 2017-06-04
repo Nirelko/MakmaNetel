@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
+import {TextField, RaisedButton} from 'material-ui';
 
 export default class SearchEvent extends Component {
     constructor() {
@@ -11,9 +12,9 @@ export default class SearchEvent extends Component {
     render() {
         return (
           <div>
-              <input type="text" onChange={this.handleNameChange}/>
+              <TextField id="searchInput" floatingLabelText="search" onChange={this.handleNameChange}/>
               <Link to={{pathname: 'search', search: `?name=${this.state.name}`}}>
-                  <button>Search</button>
+                  <RaisedButton label="Search" primary={true} />
               </Link>
           </div>
         );

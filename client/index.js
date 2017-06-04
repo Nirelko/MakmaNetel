@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import 'roboto-fontface/css/roboto/sass/roboto-fontface-light.scss';
+import 'roboto-fontface/css/roboto/sass/roboto-fontface-regular.scss';
+import 'roboto-fontface/css/roboto/sass/roboto-fontface-medium.scss';
+
 import {AppContainer} from 'react-hot-loader';
 
 import App from './components/app/index';

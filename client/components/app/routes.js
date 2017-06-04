@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
-import Recent from '../recent';
+import Recent from '../recent-events';
 import Search from '../search-results';
 
 export default function MainRoutes() {
