@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+import {Flex} from 'reflexbox';
 
 import Header from '../header/index';
 import MainRoutes from './routes'
@@ -9,9 +7,9 @@ import MainRoutes from './routes'
 export default class Shell extends Component {
     render() {
         return (
-            <div>
+            <Flex column>
                 <Header />
                 <MainRoutes />
-            </div>);
+            </Flex>);
     }
 }

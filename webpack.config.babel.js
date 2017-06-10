@@ -1,12 +1,12 @@
-import webpack, { HotModuleReplacementPlugin, NamedModulesPlugin } from 'webpack';
+import webpack, {HotModuleReplacementPlugin, NamedModulesPlugin} from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { join, resolve } from 'path';
+import {join, resolve} from 'path';
 
 module.exports = {
     entry: [
+        'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
-        'react-hot-loader/patch',
         './client/index.js'
     ],
     output: {
@@ -14,11 +14,11 @@ module.exports = {
         filename: '[name].[hash].js',
         publicPath: '/'
     },
-    module : {
-        rules : [
+    module: {
+        rules: [
             {
-                test : /\.js?/,
-                loader: 'babel-loader',
+                test: /\.js?/,
+                use: 'babel-loader',
                 exclude: /node_modules/,
             }, {
                 test: /\.scss$/,
@@ -42,17 +42,16 @@ module.exports = {
             filename: 'index.html',
             inject: 'body'
         }),
-        new HotModuleReplacementPlugin()
+        new HotModuleReplacementPlugin(),
+        new NamedModulesPlugin()
     ],
     resolve: {
         extensions: ['.js', '.less', '.css', '.html']
     },
     devtool: 'inline-source-map',
-    watch: true,
     devServer: {
         hot: true,
         port: 8080,
-        contentBase: resolve(__dirname, 'client'),
         publicPath: '/',
         historyApiFallback: true
     },

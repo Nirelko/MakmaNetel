@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
+import 'react-hot-loader/patch';
+
 import 'roboto-fontface/css/roboto/sass/roboto-fontface-light.scss';
 import 'roboto-fontface/css/roboto/sass/roboto-fontface-regular.scss';
 import 'roboto-fontface/css/roboto/sass/roboto-fontface-medium.scss';
@@ -11,19 +16,17 @@ import App from './components/app/index';
 
 const rootId = 'root';
 
-ReactDOM.render(
-    <AppContainer>
-        <App />
-    </AppContainer>,
-    document.getElementById(rootId)
-);
+const render = Component => {
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        document.getElementById(rootId)
+    );
+};
+
+render(App);
 
 if (module.hot) {
-    const shellRoute = './components/app/index';
-
-    module.hot.accept(shellRoute, () => {
-        const NextApp = require(shellRoute).default;
-        ReactDOM.render(<AppContainer><NextApp /></AppContainer>,
-            document.getElementById(rootId));
-    });
+    module.hot.accept('./components/app/index', () => { render(App) });
 }

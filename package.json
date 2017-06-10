@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "client-dev": "webpack-dev-server"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -22,6 +24,7 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
+    "reflexbox": "^2.2.3",
     "roboto-fontface": "^0.7.0",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
