@@ -1,8 +1,8 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
-import Recent from '../recent-events';
-import Search from '../search-results';
+import Recent from './recent-events/index';
+import Search from './search-results/index';
 
 export default function MainRoutes() {
     return (

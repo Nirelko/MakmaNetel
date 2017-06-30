@@ -12,7 +12,7 @@ import 'roboto-fontface/css/roboto/sass/roboto-fontface-medium.scss';
 
 import {AppContainer} from 'react-hot-loader';
 
-import App from './components/app/index';
+import App from './app';
 
 const rootId = 'root';
 
@@ -28,5 +28,5 @@ const render = Component => {
 render(App);
 
 if (module.hot) {
-    module.hot.accept('./components/app/index', () => { render(App) });
+    module.hot.accept('./app/index', () => { render(App) });
 }
