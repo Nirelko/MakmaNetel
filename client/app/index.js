@@ -8,14 +8,12 @@ import theme from './theme';
 import Shell from './shell/index';
 import store from './redux/store';
 
-export default function App() {
-    return (
-        <BrowserRouter>
-            <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
-                <Provider store={store}>
-                    <Shell />
-                </Provider>
-            </MuiThemeProvider>
-        </BrowserRouter>
-    );
-}
+export default () => (
+    <BrowserRouter>
+        <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
+            <Provider store={store}>
+                <Shell />
+            </Provider>
+        </MuiThemeProvider>
+    </BrowserRouter>
+);

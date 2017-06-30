@@ -1,11 +1,7 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class RecentEvents extends Component {
-    render() {
-        return (
-            <div>
-                <span>Recent</span>
-            </div>
-        );
-    }
-}
+export default () => (
+    <div>
+        <span>Recent</span>
+    </div>
+);

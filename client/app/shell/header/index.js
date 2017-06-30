@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
+import debounce from 'debounce';
 
 import Header from './header';
 import {searchChanged} from './redux'
@@ -9,7 +10,7 @@ export default connect(
     }),
     dispatch => ({
         onSearchChanged({target}) {
-            return dispatch(searchChanged(target.value));
+            return debounce(dispatch(searchChanged(target.value)), 300);
         }
     })
 )(Header);
