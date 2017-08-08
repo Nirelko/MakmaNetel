@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
-import {TextField, RaisedButton} from 'material-ui';
+import { Link } from 'react-router-dom'
+import { RaisedButton, TextField } from 'material-ui'
 
 export default ({onSearchChanged, searchRecentEvents}) => (
     <div>

@@ -33,3 +33,4 @@ packages/
 node_modules/
 .idea/
 server/client/
+.vscode/

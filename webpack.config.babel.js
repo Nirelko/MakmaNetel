@@ -1,58 +1,57 @@
-import webpack, {HotModuleReplacementPlugin, NamedModulesPlugin} from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import {join, resolve} from 'path';
+import webpack, { HotModuleReplacementPlugin, NamedModulesPlugin } from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import { join, resolve } from 'path'
 
 module.exports = {
-    entry: [
-        'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/only-dev-server',
-        './client/index.js'
-    ],
-    output: {
-        path: join(__dirname, './server/client'),
-        filename: '[name].[hash].js',
-        publicPath: '/'
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js?/,
-                use: 'babel-loader',
-                exclude: /node_modules/,
-            }, {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
-            }, {
-                test: /\.woff(2)?(\?v=[0-9]+\.[0-9]+\.[0-9]+)?$/,
-                use: [{
-                    loader: 'url-loader',
-                    options: {limit: 10000}
-                }]
-            },
-            {
-                test: /\.(ttf|eot|svg)(\?v=[0-9]+\.[0-9]+\.[0-9]+)?$/,
-                use: 'file-loader'
-            }
-        ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './client/index.html',
-            filename: 'index.html',
-            inject: 'body'
-        }),
-        new HotModuleReplacementPlugin(),
-        new NamedModulesPlugin()
-    ],
-    resolve: {
-        extensions: ['.js', '.less', '.css', '.html']
-    },
-    devtool: 'inline-source-map',
-    devServer: {
-        hot: true,
-        port: 8080,
-        publicPath: '/',
-        historyApiFallback: true
-    },
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './client/index.js'
+  ],
+  output: {
+    path: join(__dirname, './server/client'),
+    filename: '[name].[hash].js',
+    publicPath: '/'
+  },
+  module: {
+    rules: [{
+        test: /\.js?/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      }, {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }, {
+        test: /\.woff(2)?(\?v=[0-9]+\.[0-9]+\.[0-9]+)?$/,
+        use: [{
+          loader: 'url-loader',
+          options: { limit: 10000 }
+        }]
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]+\.[0-9]+\.[0-9]+)?$/,
+        use: 'file-loader'
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './client/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    }),
+    new HotModuleReplacementPlugin(),
+    new NamedModulesPlugin()
+  ],
+  resolve: {
+    extensions: ['.js', '.less', '.css', '.html']
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    hot: true,
+    port: 8080,
+    publicPath: '/',
+    historyApiFallback: true
+  },
 };
