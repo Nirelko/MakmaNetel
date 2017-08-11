@@ -1,17 +1,7 @@
-const SEARCH_CHANGE_TITLE = 'SEARCH_CHANGED';
+import { createAction, handleAction } from 'redux-actions';
 
-export const searchChanged = text => ({
-    type: SEARCH_CHANGE_TITLE,
-    text
-});
+export const searchChanged = createAction('SEARCH_CHANGED');
 
-export default (state = '', action) => {
-    switch (action.type) {
-        case SEARCH_CHANGE_TITLE: {
-            return action.text;
-        }
-        default: {
-            return state
-        }
-    }
-};
+export default handleAction(searchChanged, (state, { payload: text }) => ({
+  text
+}), { text: '' });

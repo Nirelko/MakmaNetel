@@ -4,8 +4,8 @@ import { RaisedButton, TextField } from 'material-ui'
 
 export default ({onSearchChanged, searchRecentEvents}) => (
     <div>
-        <TextField id="searchInput" floatingLabelText="search" onChange={onSearchChanged}/>
-        <Link to={{pathname: 'search', search: `?name=${searchRecentEvents}`}}>
+        <TextField id="searchInput" floatingLabelText="Search" onChange={onSearchChanged}/>
+        <Link to={{pathname: 'search', search: `?name=${searchRecentEvents.text}`}}>
             <RaisedButton label="Search" primary={true}/>
         </Link>
     </div>

@@ -8,8 +8,8 @@ export default connect(
     searchRecentEvents
   }),
   dispatch => ({
-    onSearchChanged ({target}) {
-      return dispatch(searchChanged(target.value));
+    onSearchChanged ({target: {value : searchText}}) {
+      return dispatch(searchChanged(searchText));
     }
   })
 )(Header);
