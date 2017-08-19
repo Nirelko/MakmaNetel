@@ -1,12 +1,12 @@
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { MuiThemeProvider } from 'material-ui'
-import { getMuiTheme } from 'material-ui/styles'
-import { Provider } from 'react-redux'
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { MuiThemeProvider } from 'material-ui';
+import { getMuiTheme } from 'material-ui/styles';
+import { Provider } from 'react-redux';
 
-import Shell from './shell/index'
-import theme from './theme'
-import store from './store.redux'
+import Shell from './shell/index';
+import theme from './theme';
+import store from './store.redux';
 
 export default () => (
   <BrowserRouter>
@@ -16,4 +16,4 @@ export default () => (
       </Provider>
     </MuiThemeProvider>
   </BrowserRouter>
-)
+);
