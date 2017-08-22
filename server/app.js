@@ -1,9 +1,16 @@
 const express = require('express');
+const _ = require('lodash');
 
 const app = express();
 
-app.get('/api/search-events', (req, res) => {
-  res.send('Hello World');
+const db = [
+  'Nirel',
+  'Tom',
+  'Dana'
+];
+
+app.get('/api/search-events', ({query: {searchedText}}, res) => {
+  res.send(db.filter(x => x.includes(searchedText)));
 });
 
 const server = app.listen(8080, () => {

@@ -1,12 +1,15 @@
-import React from 'react'
-import URLSearchParams from 'url-search-params';
+import {connect} from 'react-redux';
 
-export default ({location}) => {
-    const searchedName = new URLSearchParams(location.search).get('name');
+import SearchResults from './search-results';
+import { querySearched } from './redux';
 
-    return (
-        <div>
-            <span>You searched for the name: {searchedName}</span>
-        </div>
-    );
-};
+export default connect(
+  ({searchResults: events}) => ({
+    events
+  }),
+  dispatch => ({
+    onQuerySearched (searchText) {
+      return dispatch(querySearched(searchText));
+    }
+  })
+)(SearchResults);

@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
 
 import Header from './header';
-import {searchChanged} from './header.redux';
+import {searchChanged} from './redux';
 
 export default connect(
-  ({searchRecentEvents}) => ({
-    searchRecentEvents
+  ({searchRecentEvents: { searchText }}) => ({
+    searchText
   }),
   dispatch => ({
     onSearchChanged ({target: {value: searchText}}) {
